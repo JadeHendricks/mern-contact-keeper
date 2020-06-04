@@ -10,7 +10,7 @@ const userRouter = require('./routes/userRoute');
 const contactRouter = require('./routes/contactRoute');
 const authRouter = require('./routes/authRoute');
 
-app.use(express.json());
+app.use(express.json({ extended: true }));
 app.use('/api/users', userRouter);
 app.use('/api/contacts', contactRouter);
 app.use('/api/auth', authRouter);
