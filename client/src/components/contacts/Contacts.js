@@ -1,5 +1,4 @@
 import React, { Fragment, useContext } from 'react';
-import PropTypes from 'prop-types';
 import ContactItem from './ContactItem';
 import ContactContext from '../../Context/Contact/contactContext';
 
@@ -13,7 +12,6 @@ const Contacts = props => {
 
   return (
     <Fragment>
-
       { 
         filtered !== null ? 
         filtered.map(contact => <ContactItem key={contact.id} contact={contact} /> ) : 
@@ -23,8 +21,4 @@ const Contacts = props => {
   )
 }
 
-Contacts.propTypes = {
-
-}
-
-export default Contacts
+export default Contacts;

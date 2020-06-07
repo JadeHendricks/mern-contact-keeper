@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../Context/Contact/contactContext';
-import PropTypes from 'prop-types';
 
-const ContactForm = props => {
+const ContactForm = () => {
 
   const contactContext = useContext(ContactContext);
 
@@ -17,7 +16,7 @@ const ContactForm = props => {
         type: 'personal'
       });
     }
-  }, [contactContext, contactContext.current]);
+  }, [contactContext]);
 
   const [contact, setContact] = useState({
     name: '',
@@ -70,10 +69,6 @@ const ContactForm = props => {
       </div>
     </form>
   )
-}
-
-ContactForm.propTypes = {
-
 }
 
 export default ContactForm;
