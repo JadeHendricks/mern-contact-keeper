@@ -8,10 +8,16 @@ import About from "./components/pages/About";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
-
 import ContactState from './Context/Contact/ContactState';
 import AuthState from './Context/Auth/AuthState';
 import AlertState from './Context/Alert/AlertState';
+
+import setAuthToken from './utils/setAuthToken';
+
+//we want to run this everytime the main component loads
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
