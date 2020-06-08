@@ -15,7 +15,7 @@ const Navbar = ({ title, icon }) => {
 
   const authLinks = (
     <Fragment>
-      <li>Hello {authContext.user && authContext.user.user.name}</li>
+      <li>Hello {authContext.user && authContext.user.name}</li>
       <li>
         <a onClick={onLogout} href="#!">
           <i className="fas fa-sign-out-alt"></i> <span className="hide-sm">Logout</span>
