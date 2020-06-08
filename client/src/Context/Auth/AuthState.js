@@ -38,7 +38,6 @@ import {
         });
         loadUser();
       } catch (err) {
-        console.log(err.response.data.msg)
         dispatch({
           type: REGISTER_FAIL,
           payload: err.response.data.msg
@@ -64,7 +63,27 @@ import {
 
     }
     //login user
+    const login = async formData => {
+      const config = {
+        headers: {'Content-Type': 'application/json'}
+      }
+
+      try {
+        const res = await axios.post('/api/auth', formData, config);
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: res.data
+        });
+        loadUser();
+      } catch (err) {
+        dispatch({
+          type: LOGIN_FAIL,
+          payload: err.response.data.msg
+        })
+      }
+    }
     //logout user
+    const logout = () => dispatch({ type: LOGOUT });
     //clear errors
     const clearErrors = () => {
       dispatch({ type: CLEAR_ERRORS })
@@ -79,8 +98,10 @@ import {
           user: state.user,
           error: state.error,
           register,
+          login,
           clearErrors,
-          loadUser
+          loadUser,
+          logout
         }}
       >
         {props.children}
